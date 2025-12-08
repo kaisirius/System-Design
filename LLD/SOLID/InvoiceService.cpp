@@ -21,8 +21,8 @@ struct InvoiceParams {
     double grand_total;
 };
 
-// MISTAKE - 1
-// This method is ok as of now but can be problematic if we add more types of discount
+// MISTAKE - 2
+// This method is ok but can be problematic if we add more types of discount
 // and those discounts depends on further params which will make our interface bulky
 // violating ISP, SRP (since most of params unused), OCP to much modification
 // To solve this have a discountContext struct which will have all the params

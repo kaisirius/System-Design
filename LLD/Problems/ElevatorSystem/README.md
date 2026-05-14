@@ -1,18 +1,1 @@
-## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+As of now I feel we should use a single set of requests instead of 2 separate sets based on direction to implement LOOK/SCAN algo. Though you can use two sets as well but to implement it there are 4 different scenarios to keep in mind to handle all cases. Take an example you are moving UP now 4 things can happen UP request from higher floor add in upReq set, UP request from lower floor add in downReq set, DOWN request from lower floor in downReq set, but most importantly DOWN req from upper floor than current in upReq set. But due to this 4th case there is a subtle edge case 4->8->6 scenario where 6th requested for down but will not open gate/stop for it but make sure for every step transition the reuqest from one set to another. 

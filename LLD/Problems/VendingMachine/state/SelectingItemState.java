@@ -6,6 +6,7 @@ import LLD.Problems.VendingMachine.state.interfaces.IMachineState;
 public class SelectingItemState implements IMachineState {
   @Override
   public void selectItem(VendingMachine machine, String code) {
+    // i should have first checked here from invertory manager whether that product exists or not
     machine.setSelectedItemCode(code);
     machine.setState(new AddingMoneyState());
   }

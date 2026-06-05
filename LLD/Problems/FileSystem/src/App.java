@@ -37,5 +37,7 @@ public class App {
             System.out.println("Invalid path");
         }
 
+        fileManager.openFile("./a", "innerFile");
+
     }
 }

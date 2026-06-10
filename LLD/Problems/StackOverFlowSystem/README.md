@@ -1,0 +1,1 @@
+ignore commentable and voteable classes in UML, I forgot java doesn't support multiple inheritances, A single Post class has common feature and methods

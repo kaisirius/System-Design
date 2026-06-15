@@ -11,7 +11,7 @@ public class Caramel extends CoffeeDecorator {
   @Override
   public void prepare() {
     wrapperCoffee.prepare();
-    System.out.println(", Ading caramel syrup on top of it.");
+    System.out.println("- Ading caramel syrup on top of it.");
   }
 
   @Override

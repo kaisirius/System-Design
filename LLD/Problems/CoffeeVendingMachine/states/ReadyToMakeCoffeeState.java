@@ -20,6 +20,7 @@ public class ReadyToMakeCoffeeState implements IMachineState {
   @Override
   public void makeCoffee(CoffeeVendingMachine machine) {
     System.out.println("Making cofee");
+    machine.getSelectedCoffee().prepare();
     try {
       // do inventory manager operations
       Thread.sleep(5000);

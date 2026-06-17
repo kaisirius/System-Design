@@ -1,0 +1,4 @@
+Few things about UML and this question<br>
+1. Can use CoR for dispensing cash, each dispenser of particular note type will have a next dispenser and cn tell whether it can dispense certain amount or not and a dispense method. I feel this is optional, keep it simple have a fund manager for ATM machine.<br>
+2. I thought we will be supporting multiple bank services when I tried solving this question but they solution made it simpler by having a single bank service class. Anyways the solution doesn't change much, have an abstract class BankService and let individual banks overwrite it cause every bank can have their own method of perfroming transaction or authenticating users. 
+3. I feel states should be more narrowed, there hsould be a state of "SelectingOperationState" store the type of operation in ATMSystem, then "enterPinState" we store the enteredPin in ATMSystem, then "PerformOperationState" does it's job based on entered money and selected operation. 

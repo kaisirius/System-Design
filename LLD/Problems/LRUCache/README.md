@@ -1,0 +1,1 @@
+can have singleton design pattern for LRUCache

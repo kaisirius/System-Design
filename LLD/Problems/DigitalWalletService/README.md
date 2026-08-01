@@ -1,0 +1,2 @@
+Slight confusion in payment method, I looked at repo's solution and turns out they have never invoked processPayment(), what??
+So I am using it in sucha way to "addFunds" you need to call that paymentMethod and then what is the destination bank (it will be prolly digital wallet service some fund management account) which reflect money in their wallet account as balance.

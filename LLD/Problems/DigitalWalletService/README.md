@@ -1,2 +1,4 @@
 Slight confusion in payment method, I looked at repo's solution and turns out they have never invoked processPayment(), what??
 So I am using it in sucha way to "addFunds" you need to call that paymentMethod and then what is the destination bank (it will be prolly digital wallet service some fund management account) which reflect money in their wallet account as balance.
+
+Confusion is gone, this is a WALLET service. add fund as much as you want, directly send it to others. There should be another function to retrieve money in a given bank account(pass details in the function or you can have stored it in account class)

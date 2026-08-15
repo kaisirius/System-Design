@@ -1,0 +1,1 @@
+You can make this problem as much complicated as you want. Flight scheudling algo, crew members, while booking you can have decorator pattern for meal added, seat selected etc. use these to get final price.

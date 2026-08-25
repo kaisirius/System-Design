@@ -3,3 +3,5 @@ There are two designs in same UML image. One is using CoR design pattern and oth
 Also what I prefer to have is just like in CoR uml, here the logic to decide which node on chain will handle is same hence you can keep it in parent class like as it is now but then call the abstract method write() (or give other name like log()) which will take LogConfig from parent class and does it's processing like formatting and appending etc.<br>
 
 Additionaly can have LogManager as singleton class for single point of contact to Logs.
+
+need to update some bits here and there refer - https://youtu.be/hOzH7ecc8vg?si=jG2a_tE4l3_yPFU6

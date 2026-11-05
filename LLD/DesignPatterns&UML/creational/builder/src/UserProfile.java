@@ -74,7 +74,7 @@ public class UserProfile {
         profile.bio = _bio;
         profile.phoneNo = _phoneNo;
         profile.publicProfileVisibility = _publicProfileVisibility;
-
+        // can have a reset here to go back to default values of builder
         return profile;
       } catch(InputMismatchException err) {
         System.out.println("User profile builer failed to build profile");

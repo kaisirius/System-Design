@@ -1,6 +1,7 @@
 package LLD.Problems.Splitwise.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -172,6 +173,61 @@ public class BalanceSheet {
 
   public int dpBitmaskOptimalApproach() {
     // O(n*2^n) as of now just min number of transactions
-    return 1;
+    Map<User, Double> netBalances = new HashMap<>();
+
+    for(Map.Entry<UserPair, Double> balance: balances.entrySet()) {
+      User givesBack = balance.getKey().getPayer();
+      User getsBack = balance.getKey().getReceiver();
+      double amount = balance.getValue();
+
+      netBalances.put(givesBack, netBalances.getOrDefault(givesBack, 0.0) - amount);
+      netBalances.put(getsBack, netBalances.getOrDefault(getsBack, 0.0) + amount);
+    }
+
+    List<User> allUsers = new ArrayList<>();
+    List<Double> creditList = new ArrayList<>();
+    for(Map.Entry<User, Double> user: netBalances.entrySet()) {
+      creditList.add(user.getValue());
+      allUsers.add(user.getKey());
+    }
+
+    int totalMembers = allUsers.size();
+    int[] dp = new int[1 << totalMembers];
+    Arrays.fill(dp, -1);
+    dp[0] = 0;
+
+    int maxGrps = reccDP((1 << totalMembers) - 1, totalMembers, creditList, dp);
+    
+    return totalMembers - maxGrps;
+  }
+
+  private boolean checkSum(int subGrp, List<Double> creditList) {
+    double sum = 0.0;
+
+    for(int i = 0; i < creditList.size(); i++) {
+      if((subGrp & (1 << i)) > 0) {
+        sum += creditList.get(i);
+      }
+    }
+
+    if(Math.abs(sum) < 0.001) return true;
+    return false;
+  } 
+
+  private int reccDP(int availableGrp, int totalMembers, List<Double> credList, int[] dp) {
+    if(availableGrp == 0) return 0;
+    if(dp[availableGrp] != -1) return dp[availableGrp];
+
+    int grps = Integer.MIN_VALUE;
+
+    for(int subGrp = 1; subGrp < (1 << totalMembers); subGrp++) {
+      if((subGrp & availableGrp) == subGrp && checkSum(subGrp, credList)) {
+        grps = Math.max(grps, 1 + reccDP(subGrp, totalMembers, credList, dp));
+      }
+    }
+    dp[availableGrp] = grps;
+    return grps;
   }
 }
+
+
